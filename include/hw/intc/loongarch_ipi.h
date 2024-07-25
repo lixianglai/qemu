@@ -22,4 +22,19 @@ struct LoongarchIPIClass {
     LoongsonIPICommonClass parent_class;
 };
 
+#define TYPE_KVM_LOONGARCH_IPI  "kvm_loongarch_ipi"
+
+OBJECT_DECLARE_TYPE(KVMLoongarchIPIState,
+                    KVMLoongArchIPIClass, KVM_LOONGARCH_IPI)
+
+struct KVMLoongarchIPIState {
+    LoongsonIPICommonState parent_obj;
+    int dev_fd;
+};
+
+struct KVMLoongArchIPIClass {
+   LoongsonIPICommonClass parent_class;
+   DeviceRealize parent_realize;
+    DeviceUnrealize parent_unrealize;
+};
 #endif

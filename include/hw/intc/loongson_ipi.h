@@ -27,5 +27,4 @@ struct LoongsonIPIState {
 
     MemoryRegion *ipi_mmio_mem;
 };
-
 #endif

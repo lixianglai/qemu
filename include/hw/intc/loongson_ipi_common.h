@@ -45,6 +45,8 @@ struct LoongsonIPICommonClass {
     DeviceUnrealize parent_unrealize;
     AddressSpace *(*get_iocsr_as)(CPUState *cpu);
     CPUState *(*cpu_by_arch_id)(int64_t id);
+    void (*pre_save)(LoongsonIPICommonState *s);
+    void (*post_load)(LoongsonIPICommonState *s, int version_id);
 };
 
 MemTxResult loongson_ipi_core_readl(void *opaque, hwaddr addr, uint64_t *data,
